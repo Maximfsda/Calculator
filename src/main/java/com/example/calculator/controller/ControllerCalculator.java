@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/calculator")
 public class ControllerCalculator {
     private final CalculatorService calculatorService;
-
     public ControllerCalculator(CalculatorService calculatorService) {
         this.calculatorService = calculatorService;
     }
@@ -24,6 +23,7 @@ public class ControllerCalculator {
     public String hello() {
         return "Hello, Username!";
     }
+
     @GetMapping("/plus")
     public String plus(@RequestParam("num1") int num1, @RequestParam("num2") int num2) {
         int result = CalculatorService.plus(num1, num2);

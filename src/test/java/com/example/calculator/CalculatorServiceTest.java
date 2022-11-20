@@ -19,17 +19,22 @@ public class CalculatorServiceTest {
         Assertions.assertEquals(result, calculatorService.plus(num1, num2));
 
     }
+
     @ParameterizedTest
     @MethodSource("minusTestSuites")
     public void minus(int num1, int num2, int result) {
         Assertions.assertEquals(result, calculatorService.minus(num1, num2));
 
-    }@ParameterizedTest
+    }
+
+    @ParameterizedTest
     @MethodSource("multiplyTestSuites")
     public void multiply(int num1, int num2, int result) {
         Assertions.assertEquals(result, calculatorService.multiply(num1, num2));
 
-    }@ParameterizedTest
+    }
+
+    @ParameterizedTest
     @MethodSource("devideTestSuites")
     public void devide(int num1, int num2, int result) {
         Assertions.assertEquals(result, calculatorService.devide(num1, num2));
@@ -37,9 +42,9 @@ public class CalculatorServiceTest {
     }
 
     @Test
-    public void divideByZeroThrowsExeption(){
-        Assertions.assertThrows(Exception.class,()->{
-            calculatorService.devide(1,0);
+    public void divideByZeroThrowsExeption() {
+        Assertions.assertThrows(Exception.class, () -> {
+            calculatorService.devide(1, 0);
         });
     }
 
@@ -50,6 +55,7 @@ public class CalculatorServiceTest {
                 Arguments.of(0, 0, 0)
         );
     }
+
     public static List<Arguments> minusTestSuites() {
         return List.of(
                 Arguments.of(10, 10, 0),
@@ -57,6 +63,7 @@ public class CalculatorServiceTest {
                 Arguments.of(0, 0, 0)
         );
     }
+
     public static List<Arguments> multiplyTestSuites() {
         return List.of(
                 Arguments.of(10, 2, 20),
@@ -64,6 +71,7 @@ public class CalculatorServiceTest {
                 Arguments.of(0, 0, 0)
         );
     }
+
     public static List<Arguments> devideTestSuites() {
         return List.of(
                 Arguments.of(10, 2, 5),
